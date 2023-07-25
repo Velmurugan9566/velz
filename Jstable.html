@@ -1,0 +1,36 @@
+<html lang="en">
+	<head>
+		<title>Table Print Using JavaScript </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body >
+		<h3>Table Printer</h3>
+		<form method="post">
+			<p><input type="number" id="tablenumber" value=""  /></p>
+			<p><button type="button" onclick="printtable()">Table Print</button></p>
+		</form>
+		<div id="result" class="result"></div>
+		<script type="text/javascript">
+            function printtable() {
+                var tablenumber = document.getElementById("tablenumber").value;
+                try {
+        var table = Number(tablenumber);
+                    if (tablenumber == 0 || tablenumber <0) {
+                        alert("Please Enter Value");
+                    } else {
+                        
+                        var output = "<table border='1'><thead><th>Table</th><th>Multiple</th><th>Number</th><th>Equal</th><th>Result</th></thead><tbody>";
+                        for(var num = 1; num <= 10; num++) {
+                            var res = table * num;
+                            output += "<tr><td>" + table + "</td><td> x </td><td>" + num + "</td><td> = </td><td>" + res + "</td></tr>";
+                            //Row Printing
+                        }
+                        output += "</tbody></table>";
+                        document.getElementById("result").innerHTML = output;
+                    }
+                } catch(err) {
+                }
+            }
+		</script>
+	</body>
+</html>
